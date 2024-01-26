@@ -7,11 +7,7 @@ from pymongo.collection import Collection
 from typing import List
 
 
-def list_all(mongo_collection: Collection) -> List:
+def list_all(mongo_collection):
     """ This function prints the mongo collection """
     docs = mongo_collection.find()
-    a_list = []
-
-    for document in docs:
-        a_list.append(document)
-    return a_list
+    return docs
