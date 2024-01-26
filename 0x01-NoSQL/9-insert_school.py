@@ -11,5 +11,5 @@ if __name__ == "__main__":
 
 def insert_school(mongo_collection, **kwargs):
     """ This function prints the mongo collection """
-    id = mongo_collection.insert_one(kwargs)
+    id = mongo_collection.insert_one(kwargs).inserted_id
     return id
