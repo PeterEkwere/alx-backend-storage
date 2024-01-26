@@ -3,8 +3,10 @@
     This  function that lists all documents in a collection
     Author: Peter Ekwere
 """
-from pymongo.collection import Collection
-from typing import List
+
+
+if __name__ == "__main__":
+    pass
 
 
 def list_all(mongo_collection):
