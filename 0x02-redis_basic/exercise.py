@@ -22,6 +22,22 @@ def count_calls(method: Callable) -> Callable:
     return wrapper
 
 
+def call_history(method: Callable) -> Callable:
+    """
+    This function  stores the history of inputs and outputs for a particular function.
+    """
+    input_key = f"{method.__qualname__}:inputs"
+    output_key = f"{method.__qualname__}:outputs"
+
+    @wraps(method)
+    def wrapper(self, *args: Any, **kwds: Any) -> Any:
+        self._redis.rpush(input_key, str(*args))
+        output = method(self, *args)
+        self._redis.rpush(output_key, output)
+        return ouput
+    return wrapper
+
+
 class Cache:
     """
     This is the cache Class
