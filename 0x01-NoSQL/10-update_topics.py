@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
-"""
-    This  function that lists all documents in a collection
-    Author: Peter Ekwere
-"""
-
-
-if __name__ == "__main__":
-    pass
+""" module for the function update_topics """
 
 
 def update_topics(mongo_collection, name, topics):
-    """ This function prints the mongo collection """
-    id = mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})
+    """
+    a Python function that changes all topics of
+    a school document based on the name
+    """
+    mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})

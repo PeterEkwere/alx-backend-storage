@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
-"""
-    This  function that lists all documents in a collection
-    Author: Peter Ekwere
-"""
-
-
-if __name__ == "__main__":
-    pass
+""" module for the function list_all """
 
 
 def list_all(mongo_collection):
-    """ This function prints the mongo collection """
-    docs = mongo_collection.find()
-    return docs
+    """a Python function that lists all documents in a collection"""
+    return mongo_collection.find()

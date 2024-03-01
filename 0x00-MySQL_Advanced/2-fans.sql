@@ -1,9 +1,5 @@
---  script that ranks country origins of bands, ordered by the number of (non-unique) fans
-CREATE TEMPORARY TABLE ranking AS
-SELECT origin, SUM(fans) AS nb_fans
+-- SQL script that ranks country origins of bands, ordered by the number of (non-unique) fans
+SELECT origin, SUM(fans) as nb_fans
 FROM metal_bands
-GROUP BY origin;
-
-SELECT origin, nb_fans
-FROM ranking
-ORDER BY nb_fans DESC;
+GROUP BY origin
+ORDER BY nb_fans DESC

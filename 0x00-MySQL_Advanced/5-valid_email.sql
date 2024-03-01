@@ -1,14 +1,9 @@
--- script that creates a trigger that resets the attribute valic_email.
-DELIMITER //
-
-CREATE TRIGGER before_update_users
+-- SQL script that creates a trigger that decreases the quantity of an item after adding a new order.
+DELIMITER $$
+CREATE TRIGGER reset_valid_email
 BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
-	IF NEW.email <> OLD.email THEN
-		SET NEW.valid_email = 0;
-	END IF;
-END;
-//
-
+	IF NEW.email != OLD.email THEN SET NEW.valid_email = 0; END IF;
+END $$
 DELIMITER ;

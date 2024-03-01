@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
-"""
-    This  function that lists all documents in a collection
-    Author: Peter Ekwere
-"""
-
-
-if __name__ == "__main__":
-    pass
+""" module for the function insert_school """
 
 
 def insert_school(mongo_collection, **kwargs):
-    """ This function prints the mongo collection """
-    id = mongo_collection.insert_one(kwargs).inserted_id
-    return id
+    """
+    a Python function that inserts a new document
+    in a collection based on kwargs
+    """
+    return mongo_collection.insert_one(kwargs).inserted_id

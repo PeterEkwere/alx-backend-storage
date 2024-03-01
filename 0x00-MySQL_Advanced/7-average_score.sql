@@ -1,20 +1,8 @@
--- script that creates a stored procedure AddBonus that adds a new correction for a student.
-DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
-
-DELIMITER //
-
-CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
+-- SQL script that creates a stored procedure ComputeAverageScoreForUser that computes and store the average score for a student.
+DELIMITER $$
+CREATE PROCEDURE ComputeAverageScoreForUser(IN u_id INT)
 BEGIN
-
-	DECLARE avg_score DECIMAL(5,2);
-	SELECT AVG(score) INTO avg_score
-	FROM corrections
-	WHERE user_id = user_id;
-
-	UPDATE users
-	SET average_score = avg_score
-	WHERE id = user_id;
-END;
-//
-
+	SET @av = (SELECT AVG(score) AS av FROM corrections WHERE user_id = u_id);
+	UPDATE users SET average_score = @av WHERE id = u_id;
+END $$
 DELIMITER ;
